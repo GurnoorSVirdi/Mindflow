@@ -16,6 +16,7 @@ class OnboardingScreenFour extends StatelessWidget {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
+                  _buildLine(context, false),
                   _buildDot(context, true),
                   _buildDot(context, false),
                   _buildDot(context, false),
@@ -24,27 +25,43 @@ class OnboardingScreenFour extends StatelessWidget {
               SizedBox(height: 24),
               Text(
                 'How it works',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 16),
               Text(
                 'Journal your thoughts simply by talking to '
                 'MindFlow. Stuck on what to say? MindFlow helps '
-                'you understand what you’re going through.'
-                'Every conversation you have with MindFlow gets '
-                'saved into a log.',
-                style: TextStyle(fontSize: 18),
+                'you understand what you’re going through.',
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Color.fromARGB(255, 100, 96, 173),
+                    fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 32),
+              SizedBox(height: 10),
+              Text(
+                'Every conversation you have with MindFlow gets '
+                'saved into a log.',
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Color.fromARGB(255, 100, 96, 173),
+                    fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
                   // Handle next button press
                 },
-                child: Text('Next'),
+                child: Text('Next',
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                    )),
                 style: ElevatedButton.styleFrom(
-                  primary: Theme.of(context).primaryColor,
+                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  primary: Color(0xFF5B588B),
                   minimumSize: Size(double.infinity,
                       50), // double.infinity is the width and 50 is the height
                 ),
@@ -63,6 +80,17 @@ class OnboardingScreenFour extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 4),
       decoration: BoxDecoration(
         color: isActive ? Theme.of(context).primaryColor : Colors.grey,
+        borderRadius: BorderRadius.circular(4),
+      ),
+    );
+  }
+
+  Widget _buildLine(BuildContext context, bool isActive) {
+    return Container(
+      height: 8,
+      width: isActive ? 80 : 80,
+      decoration: BoxDecoration(
+        color: isActive ? Theme.of(context).primaryColor : Color(0xFF5B588B),
         borderRadius: BorderRadius.circular(4),
       ),
     );
