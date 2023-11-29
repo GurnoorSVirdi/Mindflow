@@ -2,6 +2,7 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mindflow_frontend/pages/history.dart';
 import 'package:mindflow_frontend/pages/talk.dart';
 import 'package:mindflow_frontend/routing/nav_bar.dart';
 
@@ -86,7 +87,7 @@ final GoRouter router = GoRouter(
               path: '/history',
               pageBuilder: (BuildContext context, GoRouterState state) {
                 return NoTransitionPage(
-                  child: Container(),
+                  child: HistoryPage(),
                 );
               },
             ),
