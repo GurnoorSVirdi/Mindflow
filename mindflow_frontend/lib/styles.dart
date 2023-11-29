@@ -11,3 +11,5 @@ TextStyle heading2 = TextStyle(
   color: Color.fromRGBO(87, 86, 86, 1),
   fontWeight: FontWeight.values[4],
 );
+
+TextStyle button1 = TextStyle(fontSize: 18, color: Colors.grey);
