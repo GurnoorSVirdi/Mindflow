@@ -8,13 +8,15 @@ class SessionButton extends StatelessWidget {
       required this.desc,
       required this.color,
       required this.imgPath,
-      required this.ctaText});
+      required this.ctaText,
+      required this.onPressed});
 
   final String title;
   final String desc;
   final String ctaText;
   final Color color;
   final String imgPath;
+  final Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,9 @@ class SessionButton extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       child: MaterialButton(
         padding: EdgeInsets.zero,
-        onPressed: () {},
+        onPressed: () {
+          onPressed();
+        },
         child: SizedBox(
           width: MediaQuery.sizeOf(context).width * 0.9,
           height: MediaQuery.sizeOf(context).height * 0.2,
@@ -32,7 +36,7 @@ class SessionButton extends StatelessWidget {
                 color: color,
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(24, 24, 72, 24),
+                padding: const EdgeInsets.fromLTRB(24, 24, 72, 24),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
