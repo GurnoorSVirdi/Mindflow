@@ -5,65 +5,67 @@ class OnboardingScreenFour extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Image.asset(
-                  'assets/onboarding_image.png'), // Replace with your actual image path
-              SizedBox(height: 24),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  _buildDot(context, true),
-                  _buildDot(context, false),
-                  _buildDot(context, false),
-                ],
-              ),
-              SizedBox(height: 24),
-              Text(
-                'How it works',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        child: Column(
+          children: <Widget>[
+            Spacer(flex: 2), // Adjusts the space at the top
+            Image.asset(
+              'assets/onboarding_image.png', // Placeholder for the actual image asset
+              width: MediaQuery.of(context).size.width * 0.6,
+              height: MediaQuery.of(context).size.height * 0.3,
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: List.generate(4, (index) {
+                // 4 dots now
+                return Container(
+                  width: 10.0,
+                  height: 10.0,
+                  margin: EdgeInsets.symmetric(horizontal: 4.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: index == 0
+                        ? Colors.deepPurple
+                        : Colors.grey[300], // First dot in purple
+                  ),
+                );
+              }),
+            ),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+            Text(
+              'How it works',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 16), // Reduced space above the subtext
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 36.0),
+              child: Text(
+                'Journal your thoughts simply by talking to MindFlow. Stuck on what to say? '
+                'MindFlow helps you understand what you’re going through.\n\n'
+                'Every conversation you have with MindFlow gets saved into a log.',
+                style: TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(height: 16),
-              Text(
-                'Journal your thoughts simply by talking to '
-                'MindFlow. Stuck on what to say? MindFlow helps '
-                'you understand what you’re going through.'
-                'Every conversation you have with MindFlow gets '
-                'saved into a log.',
-                style: TextStyle(fontSize: 18),
-                textAlign: TextAlign.center,
+            ),
+            Spacer(flex: 3), // Adjusts the space below the subtext
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                shape: StadiumBorder(),
+                primary: Colors.deepPurple,
+                padding: EdgeInsets.symmetric(vertical: 16.0),
+                minimumSize: Size(double.infinity,
+                    36.0), // match_parent width and wrap_content height
               ),
-              SizedBox(height: 32),
-              ElevatedButton(
-                onPressed: () {
-                  // Handle next button press
-                },
-                child: Text('Next'),
-                style: ElevatedButton.styleFrom(
-                  primary: Theme.of(context).primaryColor,
-                  minimumSize: Size(double.infinity,
-                      50), // double.infinity is the width and 50 is the height
-                ),
+              child: Text(
+                'Next',
+                style: TextStyle(color: Colors.white),
               ),
-            ],
-          ),
+            ),
+            Spacer(), // Adjusts the space at the bottom
+          ],
         ),
-      ),
-    );
-  }
-
-  Widget _buildDot(BuildContext context, bool isActive) {
-    return Container(
-      height: 8,
-      width: isActive ? 24 : 8,
-      margin: EdgeInsets.symmetric(horizontal: 4),
-      decoration: BoxDecoration(
-        color: isActive ? Theme.of(context).primaryColor : Colors.grey,
-        borderRadius: BorderRadius.circular(4),
       ),
     );
   }
