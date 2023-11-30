@@ -42,7 +42,7 @@ class OnboardingScreenFour extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 36.0),
               child: Text(
                 'Journal your thoughts simply by talking to MindFlow. Stuck on what to say? '
-                'MindFlow helps you understand what you’re going through.\n\n'
+                'MindFlow helps you understand what you’re going through. '
                 'Every conversation you have with MindFlow gets saved into a log.',
                 style: TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
@@ -69,4 +69,4 @@ class OnboardingScreenFour extends StatelessWidget {
       ),
     );
   }
-}
+} // Hello
