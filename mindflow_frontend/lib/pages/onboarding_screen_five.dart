@@ -17,23 +17,20 @@ class OnboardingScreenFour extends StatelessWidget {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: List.generate(4, (index) {
-                // 4 dots now
                 return Container(
                   width: 10.0,
                   height: 10.0,
                   margin: EdgeInsets.symmetric(horizontal: 4.0),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: index == 0
-                        ? Colors.deepPurple
-                        : Colors.grey[300], // First dot in purple
+                    color: index == 1 ? Colors.deepPurple : Colors.grey[300],
                   ),
                 );
               }),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),
             Text(
-              'How it works',
+              'Keep your therapist updated',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
@@ -41,9 +38,7 @@ class OnboardingScreenFour extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 36.0),
               child: Text(
-                'Journal your thoughts simply by talking to MindFlow. Stuck on what to say? '
-                'MindFlow helps you understand what you’re going through. '
-                'Every conversation you have with MindFlow gets saved into a log.',
+                'Life happens outside of therapy sessions, and sometimes you can’t keep your therapist updated.\n\n Allow your therapist to track your progress, even when you’re not meeting with them 1-1.',
                 style: TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
               ),

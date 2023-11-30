@@ -17,23 +17,20 @@ class OnboardingScreenFour extends StatelessWidget {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: List.generate(4, (index) {
-                // 4 dots now
                 return Container(
                   width: 10.0,
                   height: 10.0,
                   margin: EdgeInsets.symmetric(horizontal: 4.0),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: index == 0
-                        ? Colors.deepPurple
-                        : Colors.grey[300], // First dot in purple
+                    color: index == 2 ? Colors.deepPurple : Colors.grey[300],
                   ),
                 );
               }),
             ),
             SizedBox(height: MediaQuery.of(context).size.height * 0.05),
             Text(
-              'How it works',
+              'Track your progress',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
@@ -41,9 +38,7 @@ class OnboardingScreenFour extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 36.0),
               child: Text(
-                'Journal your thoughts simply by talking to MindFlow. Stuck on what to say? '
-                'MindFlow helps you understand what you’re going through. '
-                'Every conversation you have with MindFlow gets saved into a log.',
+                'Based on your journal entries, MindFlow allows you to view your progress over time and tailors suggestions to help you become the best version of yourself.',
                 style: TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
               ),
