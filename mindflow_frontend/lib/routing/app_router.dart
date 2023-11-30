@@ -2,16 +2,16 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mindflow_frontend/pages/session.dart';
 import 'package:mindflow_frontend/pages/history.dart';
 import 'package:mindflow_frontend/pages/onboarding_screen_one.dart';
 import 'package:mindflow_frontend/pages/onboarding_screen_two.dart';
 import 'package:mindflow_frontend/pages/onboarding_screen_three.dart';
 import 'package:mindflow_frontend/pages/onboarding_screen_four.dart';
-
 import 'package:mindflow_frontend/pages/talk.dart';
 import 'package:mindflow_frontend/routing/nav_bar.dart';
 
-//global controller for tab index, (0 = HomePage, 1 = TakeFeed, 2 = ProfilePage)
+//global controller for tab index, (0 = speak page, 1 = history page)
 //set to the initial index when the app is opened
 ValueNotifier<int> tabController = ValueNotifier<int>(0);
 
@@ -43,6 +43,7 @@ final GlobalKey<NavigatorState> navigator_key1 = GlobalKey<NavigatorState>();
 class RouteNames {
   static const talkPage = 'talkPage';
   static const historyPage = 'historyPage';
+  static const sessionPage = 'sessionPage';
 }
 
 final GoRouter router = GoRouter(
@@ -73,7 +74,17 @@ final GoRouter router = GoRouter(
               path: '/',
               builder: (BuildContext context, GoRouterState state) =>
                   const TalkPage(),
-              routes: [],
+              routes: [
+                GoRoute(
+                  // The screen to display as the root in the second tab of the
+                  // bottom navigation bar.
+                  name: RouteNames.sessionPage,
+                  path: 'session',
+                  builder: (BuildContext context, GoRouterState state) {
+                    return const SessionPage();
+                  },
+                ),
+              ],
             ),
           ],
         ),
