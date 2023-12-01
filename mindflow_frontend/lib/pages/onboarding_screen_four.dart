@@ -8,46 +8,38 @@ class OnboardingScreenFour extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Spacer(flex: 2),
-            Image.asset(
-              'assets/onboarding_image.png',
-              width: MediaQuery.of(context).size.width * 0.6,
-              height: MediaQuery.of(context).size.height * 0.3,
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: List.generate(4, (index) {
-                // 4 dots now
-                return Container(
-                  width: 10.0,
-                  height: 10.0,
-                  margin: EdgeInsets.symmetric(horizontal: 4.0),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: index == 0
-                        ? Colors.deepPurple
-                        : Colors.grey[300], // First dot in purple
-                  ),
-                );
-              }),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-            Text(
-              'How it works',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 36.0),
-              child: Text(
-                'Journal your thoughts simply by talking to MindFlow. Stuck on what to say? '
-                'MindFlow helps you understand what you’re going through. '
-                'Every conversation you have with MindFlow gets saved into a log.',
-                style: TextStyle(fontSize: 16),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image.asset(
+                  'assets/onboarding_image.png'), // Replace with your actual image path
+              SizedBox(height: 24),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _buildLine(context, false),
+                  _buildDot(context, true),
+                  _buildDot(context, false),
+                  _buildDot(context, false),
+                ],
+              ),
+              SizedBox(height: 24),
+              Text(
+                'How it works',
+                style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 16),
+              Text(
+                'Journal your thoughts simply by talking to '
+                'MindFlow. Stuck on what to say? MindFlow helps '
+                'you understand what you’re going through.',
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Color.fromARGB(255, 100, 96, 173),
+                    fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 10),
@@ -78,10 +70,32 @@ class OnboardingScreenFour extends StatelessWidget {
                       50), // double.infinity is the width and 50 is the height
                 ),
               ),
-            ),
-            Spacer(),
-          ],
+            ],
+          ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildDot(BuildContext context, bool isActive) {
+    return Container(
+      height: 8,
+      width: isActive ? 24 : 8,
+      margin: EdgeInsets.symmetric(horizontal: 4),
+      decoration: BoxDecoration(
+        color: isActive ? Theme.of(context).primaryColor : Colors.grey,
+        borderRadius: BorderRadius.circular(4),
+      ),
+    );
+  }
+
+  Widget _buildLine(BuildContext context, bool isActive) {
+    return Container(
+      height: 8,
+      width: isActive ? 80 : 80,
+      decoration: BoxDecoration(
+        color: isActive ? Theme.of(context).primaryColor : Color(0xFF5B588B),
+        borderRadius: BorderRadius.circular(4),
       ),
     );
   }

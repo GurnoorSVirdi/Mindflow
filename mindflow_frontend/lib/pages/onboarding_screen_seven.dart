@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class OnboardingScreenFour extends StatelessWidget {
+class OnboardingScreenSeven extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

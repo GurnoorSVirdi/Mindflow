@@ -37,7 +37,8 @@ class OnboardingScreenThree extends StatelessWidget {
                 onPressed: () {
                   context.pushNamed(RouteNames.tutorialPage);
                 },
-                child: Text('Continue'),
+                child: Text('Continue',
+                    style: TextStyle(color: Theme.of(context).hintColor)),
                 style: ElevatedButton.styleFrom(
                   primary: Theme.of(context).primaryColor,
                   minimumSize: Size(double.infinity, 50),
