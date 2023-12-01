@@ -2,6 +2,7 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:mindflow_frontend/main.dart';
 import 'package:mindflow_frontend/pages/session.dart';
 import 'package:mindflow_frontend/pages/history.dart';
 import 'package:mindflow_frontend/pages/onboarding_screen_one.dart';
@@ -44,13 +45,24 @@ class RouteNames {
   static const talkPage = 'talkPage';
   static const historyPage = 'historyPage';
   static const sessionPage = 'sessionPage';
+
+  static const loginPage = 'loginPage';
+  static const welcomePage = 'welcomePage';
+  static const referralPage = 'referralPage';
+  static const tutorialPage = 'tutorialPage';
 }
 
 final GoRouter router = GoRouter(
   navigatorKey: rootNavigatorKey,
   initialLocation: '/',
   redirect: (context, state) {
-    //FlutterNativeSplash.remove();
+    //if user is logged in OR if the user is in the signup flow, do nothing
+    if (USER_AUTHENTICATED || state.uri.toString().contains("/signup")) {
+      return null;
+    }
+
+    //otherwise redirect to signup
+    return '/signup';
   },
   routes: <RouteBase>[
     StatefulShellRoute.indexedStack(
@@ -102,12 +114,48 @@ final GoRouter router = GoRouter(
               name: RouteNames.historyPage,
               path: '/history',
               pageBuilder: (BuildContext context, GoRouterState state) {
-                return NoTransitionPage(
-                  child: OnboardingScreenFour(),
+                return const NoTransitionPage(
+                  child: HistoryPage(),
                 );
               },
             ),
           ],
+        ),
+      ],
+    ),
+    GoRoute(
+      name: RouteNames.loginPage,
+      path: '/signup',
+      pageBuilder: (BuildContext context, GoRouterState state) {
+        return NoTransitionPage(child: OnboardingScreenOne());
+      },
+      routes: [
+        GoRoute(
+          // The screen to display as the root in the second tab of the
+          // bottom navigation bar.
+          name: RouteNames.welcomePage,
+          path: 'welcome',
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return NoTransitionPage(child: OnboardingScreenTwo());
+          },
+        ),
+        GoRoute(
+          // The screen to display as the root in the second tab of the
+          // bottom navigation bar.
+          name: RouteNames.referralPage,
+          path: 'referral',
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return NoTransitionPage(child: OnboardingScreenThree());
+          },
+        ),
+        GoRoute(
+          // The screen to display as the root in the second tab of the
+          // bottom navigation bar.
+          name: RouteNames.tutorialPage,
+          path: 'tutorial',
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return NoTransitionPage(child: OnboardingScreenFour());
+          },
         ),
       ],
     ),
@@ -128,10 +176,7 @@ class ScaffoldWithNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isDark = Theme.of(context).brightness == Brightness.dark;
-
     int index = navigationShell.currentIndex;
-    //navigate to the first index on the navigation bar
 
     return Scaffold(
       resizeToAvoidBottomInset: false,

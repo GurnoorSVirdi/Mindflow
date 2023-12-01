@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mindflow_frontend/routing/app_router.dart';
 import 'package:mindflow_frontend/theme.dart';
 
+bool USER_AUTHENTICATED = false;
+
 void main() {
   runApp(const MyApp());
 }

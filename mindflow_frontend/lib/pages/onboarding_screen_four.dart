@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mindflow_frontend/main.dart';
+import 'package:mindflow_frontend/routing/app_router.dart';
 
 class OnboardingScreenFour extends StatelessWidget {
   @override
@@ -52,7 +55,8 @@ class OnboardingScreenFour extends StatelessWidget {
               SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
-                  // Handle next button press
+                  USER_AUTHENTICATED = true;
+                  context.goNamed(RouteNames.talkPage);
                 },
                 child: Text('Next',
                     style: TextStyle(

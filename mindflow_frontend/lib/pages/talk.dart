@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mindflow_frontend/routing/app_router.dart';
+import 'package:mindflow_frontend/routing/header_scrollview.dart';
 import 'package:mindflow_frontend/styles.dart';
+import 'package:mindflow_frontend/widgets/main_header.dart';
 import 'package:mindflow_frontend/widgets/session_button.dart';
 
 class TalkPage extends StatefulWidget {
@@ -20,9 +22,10 @@ class _TalkPageState extends State<TalkPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Center(
+        body: HeaderScrollView(
+          controller: scroll_controller0,
           child: Container(
-            padding: EdgeInsets.all(20),
+            height: MediaQuery.of(context).size.height * 0.7,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -49,7 +52,7 @@ class _TalkPageState extends State<TalkPage> {
                       RouteNames.sessionPage,
                     );
                   },
-                )
+                ),
               ],
             ),
           ),

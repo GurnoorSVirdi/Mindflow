@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mindflow_frontend/routing/app_router.dart';
 
 class OnboardingScreenThree extends StatelessWidget {
   @override
@@ -32,7 +34,9 @@ class OnboardingScreenThree extends StatelessWidget {
               ),
               SizedBox(height: 32),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.pushNamed(RouteNames.tutorialPage);
+                },
                 child: Text('Continue'),
                 style: ElevatedButton.styleFrom(
                   primary: Theme.of(context).primaryColor,
@@ -40,7 +44,9 @@ class OnboardingScreenThree extends StatelessWidget {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.pushNamed(RouteNames.tutorialPage);
+                },
                 child: Text("No, I wasn't referred by a therapist/provider"),
               ),
             ],

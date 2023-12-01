@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mindflow_frontend/routing/app_router.dart';
 
 class OnboardingScreenOne extends StatelessWidget {
   @override
@@ -28,13 +30,17 @@ class OnboardingScreenOne extends StatelessWidget {
               ElevatedButton.icon(
                 icon: Icon(Icons.apple),
                 label: Text('Continue with Apple'),
-                onPressed: () {},
+                onPressed: () {
+                  context.pushNamed(RouteNames.welcomePage);
+                },
               ),
               SizedBox(height: 16),
               ElevatedButton.icon(
                 icon: Icon(Icons.android),
                 label: Text('Continue with Google'),
-                onPressed: () {},
+                onPressed: () {
+                  context.pushNamed(RouteNames.welcomePage);
+                },
               ),
             ],
           ),

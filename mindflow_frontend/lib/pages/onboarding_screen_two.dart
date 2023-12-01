@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mindflow_frontend/routing/app_router.dart';
 
 class OnboardingScreenTwo extends StatelessWidget {
   @override
@@ -30,7 +32,9 @@ class OnboardingScreenTwo extends StatelessWidget {
               ),
               SizedBox(height: 32),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.pushNamed(RouteNames.referralPage);
+                },
                 child: Text('Continue'),
                 style: ElevatedButton.styleFrom(
                   primary: Theme.of(context).primaryColor,
