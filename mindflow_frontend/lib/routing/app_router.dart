@@ -54,6 +54,10 @@ class RouteNames {
   static const welcomePage = 'welcomePage';
   static const referralPage = 'referralPage';
   static const tutorialPage = 'tutorialPage';
+  static const tutorialPage2 = 'tutorialPage2';
+  static const tutorialPage3 = 'tutorialPage3';
+  static const tutorialPage4 = 'tutorialPage4';
+  static const tutorialPage5 = 'tutorialPage5';
 }
 
 final GoRouter router = GoRouter(
@@ -159,6 +163,42 @@ final GoRouter router = GoRouter(
           path: 'tutorial',
           pageBuilder: (BuildContext context, GoRouterState state) {
             return NoTransitionPage(child: OnboardingScreenFour());
+          },
+        ),
+        GoRoute(
+          // The screen to display as the root in the second tab of the
+          // bottom navigation bar.
+          name: RouteNames.tutorialPage2,
+          path: 'tutorial2',
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return NoTransitionPage(child: OnboardingScreenFive());
+          },
+        ),
+        GoRoute(
+          // The screen to display as the root in the second tab of the
+          // bottom navigation bar.
+          name: RouteNames.tutorialPage3,
+          path: 'tutorial3',
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return NoTransitionPage(child: OnboardingScreenSix());
+          },
+        ),
+        GoRoute(
+          // The screen to display as the root in the second tab of the
+          // bottom navigation bar.
+          name: RouteNames.tutorialPage4,
+          path: 'tutorial4',
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return NoTransitionPage(child: OnboardingScreenSeven());
+          },
+        ),
+        GoRoute(
+          // The screen to display as the root in the second tab of the
+          // bottom navigation bar.
+          name: RouteNames.tutorialPage5,
+          path: 'tutorial5',
+          pageBuilder: (BuildContext context, GoRouterState state) {
+            return NoTransitionPage(child: OnboardingScreenEight());
           },
         ),
       ],

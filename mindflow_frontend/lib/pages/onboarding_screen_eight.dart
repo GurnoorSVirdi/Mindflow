@@ -26,7 +26,10 @@ class OnboardingScreenEight extends StatelessWidget {
               ),
               Spacer(),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  USER_AUTHENTICATED = true;
+                  context.goNamed(RouteNames.talkPage);
+                },
                 child: Text('Get Started'),
                 style: ElevatedButton.styleFrom(
                   primary: Colors.deepPurple,

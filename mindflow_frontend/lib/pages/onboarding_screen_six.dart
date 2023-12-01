@@ -54,8 +54,7 @@ class OnboardingScreenFour extends StatelessWidget {
               SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
-                  USER_AUTHENTICATED = true;
-                  context.goNamed(RouteNames.talkPage);
+                  context.pushNamed(RouteNames.tutorialPage4);
                 },
                 child: Text('Next',
                     style: TextStyle(
