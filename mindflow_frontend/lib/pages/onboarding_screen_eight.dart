@@ -20,7 +20,7 @@ class OnboardingScreenEight extends StatelessWidget {
               ),
               Spacer(),
               Image.asset(
-                'assets/image_placeholder.png',
+                'assets/onboarding_image.png',
                 width: MediaQuery.of(context).size.width * 0.6,
                 height: MediaQuery.of(context).size.height * 0.3,
               ),

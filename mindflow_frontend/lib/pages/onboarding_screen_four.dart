@@ -23,6 +23,7 @@ class OnboardingScreenFour extends StatelessWidget {
                   _buildDot(context, true),
                   _buildDot(context, false),
                   _buildDot(context, false),
+                  _buildDot(context, false),
                 ],
               ),
               SizedBox(height: 24),

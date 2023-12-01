@@ -1,65 +1,100 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mindflow_frontend/main.dart';
+import 'package:mindflow_frontend/routing/app_router.dart';
 
-class OnboardingScreenFive extends StatelessWidget {
+class OnboardingScreenFour extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Spacer(flex: 2),
-            Image.asset(
-              'assets/onboarding_image.png',
-              width: MediaQuery.of(context).size.width * 0.6,
-              height: MediaQuery.of(context).size.height * 0.3,
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: List.generate(4, (index) {
-                return Container(
-                  width: 10.0,
-                  height: 10.0,
-                  margin: EdgeInsets.symmetric(horizontal: 4.0),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: index == 1 ? Colors.deepPurple : Colors.grey[300],
-                  ),
-                );
-              }),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-            Text(
-              'Keep your therapist updated',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 16),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 36.0),
-              child: Text(
-                'Life happens outside of therapy sessions, and sometimes you can’t keep your therapist updated.\n\n Allow your therapist to track your progress, even when you’re not meeting with them 1-1.',
-                style: TextStyle(fontSize: 16),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image.asset(
+                  'assets/onboarding_image.png'), // Replace with your actual image path
+              SizedBox(height: 24),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _buildLine(context, false),
+                  _buildDot(context, false),
+                  _buildDot(context, true),
+                  _buildDot(context, false),
+                  _buildDot(context, false),
+                ],
+              ),
+              SizedBox(height: 24),
+              Text(
+                'Keep your therapist updated',
+                style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
-            ),
-            Spacer(flex: 3),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                shape: StadiumBorder(),
-                primary: Colors.deepPurple,
-                padding: EdgeInsets.symmetric(vertical: 16.0),
-                minimumSize: Size(double.infinity, 36.0),
+              SizedBox(height: 16),
+              Text(
+                'Life happens outside of therapy sessions, and sometimes you can’t keep your therapist updated. \n\nAllow your therapist to track your progress, even when you’re not meeting with them 1-1.',
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Color.fromARGB(255, 100, 96, 173),
+                    fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
-              child: Text(
-                'Next',
-                style: TextStyle(color: Colors.white),
+              SizedBox(height: 10),
+              Text(
+                'Every conversation you have with MindFlow gets '
+                'saved into a log.',
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Color.fromARGB(255, 100, 96, 173),
+                    fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
-            ),
-            Spacer(),
-          ],
+              SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () {
+                  USER_AUTHENTICATED = true;
+                  context.goNamed(RouteNames.talkPage);
+                },
+                child: Text('Next',
+                    style: TextStyle(
+                      fontSize: 25,
+                      color: Colors.white,
+                    )),
+                style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                  primary: Color(0xFF5B588B),
+                  minimumSize: Size(double.infinity,
+                      50), // double.infinity is the width and 50 is the height
+                ),
+              ),
+            ],
+          ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildDot(BuildContext context, bool isActive) {
+    return Container(
+      height: 8,
+      width: isActive ? 24 : 8,
+      margin: EdgeInsets.symmetric(horizontal: 4),
+      decoration: BoxDecoration(
+        color: isActive ? Theme.of(context).primaryColor : Colors.grey,
+        borderRadius: BorderRadius.circular(4),
+      ),
+    );
+  }
+
+  Widget _buildLine(BuildContext context, bool isActive) {
+    return Container(
+      height: 8,
+      width: isActive ? 80 : 80,
+      decoration: BoxDecoration(
+        color: isActive ? Theme.of(context).primaryColor : Color(0xFF5B588B),
+        borderRadius: BorderRadius.circular(4),
       ),
     );
   }
