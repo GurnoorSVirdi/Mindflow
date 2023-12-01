@@ -9,6 +9,10 @@ import 'package:mindflow_frontend/pages/onboarding_screen_one.dart';
 import 'package:mindflow_frontend/pages/onboarding_screen_two.dart';
 import 'package:mindflow_frontend/pages/onboarding_screen_three.dart';
 import 'package:mindflow_frontend/pages/onboarding_screen_four.dart';
+import 'package:mindflow_frontend/pages/onboarding_screen_five.dart';
+import 'package:mindflow_frontend/pages/onboarding_screen_six.dart';
+import 'package:mindflow_frontend/pages/onboarding_screen_seven.dart';
+import 'package:mindflow_frontend/pages/onboarding_screen_eight.dart';
 import 'package:mindflow_frontend/pages/talk.dart';
 import 'package:mindflow_frontend/routing/nav_bar.dart';
 
