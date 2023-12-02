@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mindflow_frontend/main.dart';
+import 'package:mindflow_frontend/routing/app_router.dart';
 
 class OnboardingScreenEight extends StatelessWidget {
   @override

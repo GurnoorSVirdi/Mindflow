@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:mindflow_frontend/main.dart';
 import 'package:mindflow_frontend/routing/app_router.dart';
 
-class OnboardingScreenFour extends StatelessWidget {
+class OnboardingScreenFive extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
